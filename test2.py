@@ -18,7 +18,7 @@ def validBracketSequence(sequence):
     else:
         return checkForExpressionBrackets(ascii_index)
       
-    #return False
+    return False
 
 def checkForExpressionBrackets(ascii_index):
     if ascii_index == 40 or ascii_index == 91 or ascii_index == 123:
@@ -68,4 +68,4 @@ def getOpeningAndClosingBrackets(ascii_index):
 
     return opening_bracket, closing_bracket
 
-print(validBracketSequence("([(a)])"))
+print(validBracketSequence("{[]}"))
