@@ -6,7 +6,7 @@ def validBracketSequence(sequence):
     print("New seq " + sequence)
 
     ascii_index = ord(sequence[0])
-    #look for the chars asked for in the code signal test, we only need the opening "bracket" '(', '[', '{'
+    #look for the chars asked for in the code signal test 
     if checkForExpressionBrackets(ascii_index):
         #Lets first check for outer matching brackets
         current_sequence = sequence
@@ -21,6 +21,7 @@ def validBracketSequence(sequence):
     return False
 
 def checkForExpressionBrackets(ascii_index):
+    #we only need the opening "bracket" '(', '[', '{'
     if ascii_index == 40 or ascii_index == 91 or ascii_index == 123:
         return True
     else:
