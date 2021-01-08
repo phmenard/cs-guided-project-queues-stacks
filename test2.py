@@ -1,4 +1,5 @@
 def validBracketSequence(sequence):
+   
     if len(sequence) == 0:
         return True
 
@@ -14,7 +15,7 @@ def validBracketSequence(sequence):
             
             return(validBracketSequence(sequence))
     else:
-        if len(sequence) <= 2:
+       #if len(sequence) <= 2:
             return True
       
     return False
