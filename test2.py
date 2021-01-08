@@ -6,19 +6,25 @@ def validBracketSequence(sequence):
     print("New seq " + sequence)
 
     ascii_index = ord(sequence[0])
-    #look for the chars asked for in the code signal test we only need the opening "bracket" '(', '[', '{'
-    if ascii_index == 40 or ascii_index == 91 or ascii_index == 123:
+    #look for the chars asked for in the code signal test, we only need the opening "bracket" '(', '[', '{'
+    if checkForExpressionBrackets(ascii_index):
         #Lets first check for outer matching brackets
         current_sequence = sequence
         sequence = checkForOuterBrackets(sequence, ascii_index)
         if current_sequence != sequence:
-            
             return(validBracketSequence(sequence))
+        
+             
     else:
-       #if len(sequence) <= 2:
-            return True
+        return checkForExpressionBrackets(ascii_index)
       
-    return False
+    #return False
+
+def checkForExpressionBrackets(ascii_index):
+    if ascii_index == 40 or ascii_index == 91 or ascii_index == 123:
+        return True
+    else:
+        return False
    
 def checkForImediatClosingBracket(sequence, ascii_index):
     #first lets get the open and close brackets
@@ -32,7 +38,7 @@ def checkForImediatClosingBracket(sequence, ascii_index):
             clean_sequence += (sequence[char]) # build a new string minus the brackets
 
         return clean_sequence
-    else: # if no adjacent closing bracket found juts return and move on
+    else: # if no adjacent closing bracket found just return and move on
         return sequence  
     
 
@@ -62,4 +68,4 @@ def getOpeningAndClosingBrackets(ascii_index):
 
     return opening_bracket, closing_bracket
 
-print(validBracketSequence("{[]}"))
+print(validBracketSequence("([(a)])"))
